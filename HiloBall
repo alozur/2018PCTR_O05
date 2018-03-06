@@ -1,0 +1,25 @@
+
+public class HiloBall implements Runnable{
+	
+	private Ball bola;
+	private Board board;
+	
+	public HiloBall(Ball bola, Board board) {
+		this.bola = bola;
+		this.board = board;
+	}
+	
+	public void run() {
+		while(true) {
+			bola.move();
+			board.repaint();
+			try {
+				Thread.sleep(15);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+		
+	}
+
+}
